@@ -5,7 +5,13 @@ local lspconfig = require "lspconfig"
 
 local servers = {
   "tsserver",
-  "rust_analyzer"
+  "rust_analyzer",
+  "angularls",
+  "tailwindcss",
+  "html",
+  "zls",
+  "svelte",
+  "pyright"
 }
 
 for _, lsp in ipairs(servers) do
