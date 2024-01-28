@@ -34,6 +34,12 @@ M.abc = {
       function()
         require("dapui").toggle()
       end
+    },
+
+    ["<leader>fl"] = {
+      function()
+        vim.diagnostic.open_float()
+      end
     }
   },
 
