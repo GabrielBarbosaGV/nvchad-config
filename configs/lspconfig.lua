@@ -1,6 +1,8 @@
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
+require('java').setup()
+
 local lspconfig = require "lspconfig"
 
 local servers = {
@@ -11,7 +13,8 @@ local servers = {
   "html",
   "zls",
   "svelte",
-  "pyright"
+  "pyright",
+  "jdtls"
 }
 
 for _, lsp in ipairs(servers) do
