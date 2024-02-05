@@ -72,7 +72,8 @@ local plugins = {
         },
       }
     }
-  }
+  },
+  { "marilari88/twoslash-queries.nvim" }
 }
 
 return plugins

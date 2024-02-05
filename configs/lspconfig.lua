@@ -6,7 +6,6 @@ require('java').setup()
 local lspconfig = require "lspconfig"
 
 local servers = {
-  "tsserver",
   "rust_analyzer",
   "angularls",
   "tailwindcss",
@@ -23,3 +22,13 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities
   }
 end
+
+lspconfig["tsserver"].setup {
+  on_attach = function(client, bufnr)
+    require("twoslash-queries").attach(client, bufnr)
+
+    on_attach(client, bufnr)
+  end,
+
+  capabilities = capabilities
+}
