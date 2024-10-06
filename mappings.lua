@@ -38,9 +38,10 @@ M.abc = {
 
     ["<leader>fl"] = {
       function()
-        vim.diagnostic.open_float()
-      end
-    }
+        vim.diagnostic.open_float { border = "rounded" }
+      end,
+      "Floating diagnostic",
+    },
   },
 
   i = {

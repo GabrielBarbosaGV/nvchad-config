@@ -52,28 +52,12 @@ local plugins = {
     "f-person/git-blame.nvim",
     lazy = false
   },
+  { "marilari88/twoslash-queries.nvim" },
   {
-    "nvim-java/nvim-java",
-    dependencies = {
-      'nvim-java/lua-async-await',
-      'nvim-java/nvim-java-core',
-      'nvim-java/nvim-java-test',
-      'nvim-java/nvim-java-dap',
-      'MunifTanjim/nui.nvim',
-      'neovim/nvim-lspconfig',
-      'mfussenegger/nvim-dap',
-      {
-        'williamboman/mason.nvim',
-        opts = {
-          registries = {
-            'github:nvim-java/mason-registry',
-            'github:mason-org/mason-registry',
-          },
-        },
-      }
-    }
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" },
+    opts = {}
   },
-  { "marilari88/twoslash-queries.nvim" }
 }
 
 return plugins

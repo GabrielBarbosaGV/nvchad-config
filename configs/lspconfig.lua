@@ -1,8 +1,6 @@
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
-require('java').setup()
-
 local lspconfig = require "lspconfig"
 
 local servers = {
@@ -10,10 +8,8 @@ local servers = {
   "angularls",
   "tailwindcss",
   "html",
-  "zls",
   "svelte",
   "pyright",
-  "jdtls"
 }
 
 for _, lsp in ipairs(servers) do
@@ -31,4 +27,45 @@ lspconfig["tsserver"].setup {
   end,
 
   capabilities = capabilities
+}
+
+lspconfig["zls"].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+
+  cmd = { "zls" },
+
+  filetypes = { "zig", "zir" },
+
+  root_dir = lspconfig.util.root_pattern("zls.json", "build.zig", ".git"),
+
+  single_file_support = true
+}
+
+lspconfig["lemminx"].setup {
+  settings = {
+    xml = {
+      server = {
+        workDir = "~/.cache/lemminx",
+      }
+    }
+  }
+}
+
+lspconfig["elixirls"].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "/home/nb29877/Personal/elixir-ls/language_server.sh" }
+}
+
+lspconfig["crystalline"].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  root_dir = lspconfig.util.root_pattern("shard.yml", ".git")
+}
+
+lspconfig["hls"].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { 'haskell', 'lhaskell', 'cabal'}
 }
